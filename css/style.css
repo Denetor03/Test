@@ -4,3 +4,66 @@ body{
     background-size:	cover;	
 
 }
+.topnav {
+    background-color: gray;
+    overflow: hidden;
+    margin: 1px;
+    border-radius: 10px;
+}
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+.topnav a:hover {
+    background-color: light-gray;
+    color: red;
+    transition: 1s;
+}
+.topnav a.active {
+    background-color: red;
+    color: white;
+    border-radius: 10px;
+}
+
+grid-container {
+    margin: 10%;
+    margin-top: 1%;
+    display: grid;
+    grid-template-columns: auto auto auto ;
+    background-color: gray;
+    padding: 10px;
+    border-radius: 10px;
+    
+}
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+.grid-item1{
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center; 
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.grid-item:hover{
+    background-color: rgb(71, 71, 71);
+    color: red;
+    transition: 0.5s;
+}
+
+.grid-item1:hover{
+    background-color: rgb(71, 71, 71);
+    color: red;
+    transition: 0.5s;
+}
