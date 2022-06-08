@@ -1,5 +1,5 @@
 const allowedDirections = ["north", "south", "east", "west"];
-const allowedActions = ["move", "take", "drop", "examine", "help"];
+const allowedActions = ["move", "look", "drop", "examine", "help"];
 var currentRoom = 0;
 
 
@@ -11,9 +11,9 @@ const east = {0:0, 1:1, 2:3, 3:4, 4:5, 5:8, 6:7, 7:8, 8:9, 9:9};
 const west = {0:0, 1:1, 2:2, 3:2, 4:3, 5:4, 6:6, 7:7, 8:5, 9:8};
 const compass = {"north":north, "south":south, "east":east, "west":west};
 const description = {0 : "you are in a burning room, there are sparking wires everywhere",
-                    1 : "It looks like an engine room, inactive.",
+                    1 : "It looks like an engine room",
                     2 : "you are narrow hallway",
-                    3 : "You are in the sleeping quarters, it looks like it was left in a hurry.",
+                    3 : "You are in the sleeping quarters.",
                     4 : "hallway, nothing special",
                     5 : "you are in a meeting room",
                     6 : "psssss, SCHHHHH, wwwwww, you are in an airlock.",
@@ -34,6 +34,19 @@ const Directions = {0 : "there is only one way to go(south)",
                     8 : "You can go(east, west).",
                     9 : "you can only go back ( west)."
             };
+
+const lookAround = {0: "it looks like something exploded here",
+                    1: "The engine looks inactive. It is probebly connected to the first room.",
+                    2: "It is a bit craped in here. Also there are wires everywhere.",
+                    3: "It looks like people left this room in a hurry. There is chaos everywhere.",
+                    4: "It is a very boring room. There is nothing special here.",
+                    5: "There are scratch marks on the meeting table. Doesn't look like anything a human could have done.",
+                    6: "looks like a airlock, smells like a airlock, sounds like a airlock.",
+                    7: "Many boxes are stacked here. Some of them are on the ground",
+                    8: "looks creepy, can't see much.",
+                    9: "there is blood on the controls, but there are no corpses."                
+                
+                };
             
 
 document.getElementById("label1").innerHTML = description[currentRoom];
@@ -65,7 +78,7 @@ function main()
             currentRoom = move(currentRoom, direction);
         }
     }
-    else if(action == "take")
+    else if(action == "look")
     {
         if(inputArray.length == 1)
         {
@@ -73,7 +86,7 @@ function main()
         }
         else
         {
-            take(currentRoom, inputArray[1]);
+            look(currentRoom, inputArray[1]);
         }
     }
     else if(action == "drop")
@@ -136,4 +149,8 @@ function moveWest()
 {
     currentRoom = west[currentRoom];
     main();
+}
+function look()
+{
+    document.getElementById("label3").innerHTML = lookAround[currentRoom];
 }
