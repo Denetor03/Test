@@ -1,7 +1,10 @@
+
 body{
     background-image:url('Background.jpg');
     background-repeat: no-repeat;
     background-size:	cover;	
+    color: #f2f2f2;
+    font-size: 100px;
 
 }
 .topnav {
@@ -67,20 +70,7 @@ grid-container {
     color: red;
     transition: 0.5s;
 }
-#canvas
-{
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
-    text-align: center;
-    grid-column-start: 1;
-    grid-column-end: 4;
 
-}
-.canvasparent
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.output{
+    text-align: center;
 }
