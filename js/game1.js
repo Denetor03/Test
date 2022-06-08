@@ -41,6 +41,7 @@ document.getElementById("label2").innerHTML = Directions[currentRoom];
 var input = getInput();
 function main()
 {
+    document.getElementById("label3").innerHTML = "";
     input = getInput();
     var inputArray = input.split(" ");
     var action = inputArray[0];
