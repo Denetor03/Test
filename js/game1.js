@@ -1,10 +1,6 @@
+var currentRoom = 0;
 const allowedDirections = ["north", "south", "east", "west"];
 const allowedActions = ["move", "look", "drop", "examine", "help"];
-var currentRoom = 0;
-
-
-
-
 const north = {0:0, 1: 2, 2:0, 3:3, 4:4, 5:5, 6:5, 7:6, 8:8, 9:9};
 const south = {0:2, 1:1, 2:1, 3:3, 4:4, 5:6, 6:7, 7:7, 8:8, 9:9};
 const east = {0:0, 1:1, 2:3, 3:4, 4:5, 5:8, 6:7, 7:8, 8:9, 9:9};
@@ -19,9 +15,7 @@ const description = {0 : "you are in a burning room, there are sparking wires ev
                     6 : "psssss, SCHHHHH, wwwwww, you are in an airlock.",
                     7 : "Looks like you are in a big storage room.",
                     8 : "a long hallway, the lights are not working.",
-                    9 : "You are on the bridge of a spaceship"
-                   
-                };
+                    9 : "You are on the bridge of a spaceship"       };
 
 const Directions = {0 : "there is only one way to go(south)",
                     1 : "there is only one way to go(north)",
@@ -32,8 +26,7 @@ const Directions = {0 : "there is only one way to go(south)",
                     6 : "you can go (north, south).",
                     7 : "you can only go back (north).",
                     8 : "You can go(east, west).",
-                    9 : "you can only go back ( west)."
-            };
+                    9 : "you can only go back ( west)."};
 
 const lookAround = {0: "it looks like something exploded here",
                     1: "The engine looks inactive. It is probebly connected to the first room.",
@@ -41,12 +34,10 @@ const lookAround = {0: "it looks like something exploded here",
                     3: "It looks like people left this room in a hurry. There is chaos everywhere.",
                     4: "It is a very boring room. There is nothing special here.",
                     5: "There are scratch marks on the meeting table. Doesn't look like anything a human could have done.",
-                    6: "looks like a airlock, smells like a airlock, sounds like a airlock.",
+                    6: "looks like an airlock, smells like an airlock, sounds like an airlock.",
                     7: "Many boxes are stacked here. Some of them are on the ground",
                     8: "looks creepy, can't see much.",
-                    9: "there is blood on the controls, but there are no corpses."                
-                
-                };
+                    9: "there is blood on the controls, but there are no corpses."};
             
 
 document.getElementById("label1").innerHTML = description[currentRoom];
