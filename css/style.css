@@ -4,7 +4,7 @@ body{
     background-repeat: no-repeat;
     background-size:	cover;	
     color: #f2f2f2;
-    font-size: 100px;
+    font-size: 50px;
 
 }
 .topnav {
@@ -73,4 +73,12 @@ grid-container {
 
 .output{
     text-align: center;
+    height: 50%;
+    background-color: #4e4e4e3a;
+}
+.movementButtons
+{
+    text-align: center;
+    height: 50%;
+    background-color: #582d2d91;
 }

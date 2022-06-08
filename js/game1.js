@@ -7,7 +7,7 @@ var currentRoom = 0;
 
 const north = {0:0, 1: 2, 2:0, 3:3, 4:4, 5:5, 6:5, 7:6, 8:8, 9:9};
 const south = {0:2, 1:1, 2:1, 3:3, 4:4, 5:6, 6:7, 7:7, 8:8, 9:9};
-const east = {0:0, 1:1, 2:3, 3:3, 4:5, 5:8, 6:7, 7:8, 8:9, 9:9};
+const east = {0:0, 1:1, 2:3, 3:4, 4:5, 5:8, 6:7, 7:8, 8:9, 9:9};
 const west = {0:0, 1:1, 2:2, 3:2, 4:3, 5:4, 6:6, 7:7, 8:5, 9:8};
 const compass = {"north":north, "south":south, "east":east, "west":west};
 const description = {0 : "you are in a burning room, there are sparking wires everywhere",
@@ -32,7 +32,7 @@ const Directions = {0 : "there is only one way to go(south)",
                     6 : "you can go (north, south).",
                     7 : "you can only go back (north).",
                     8 : "You can go(east, west).",
-                    9 : "you can only go back ( east)."
+                    9 : "you can only go back ( west)."
             };
             
 
@@ -110,4 +110,25 @@ function move(currentRoom, direction)
 {
     var newRoom = compass[direction][currentRoom];
     return newRoom;
+}
+
+function moveNorth()
+{
+    currentRoom = north[currentRoom];
+    main();
+}
+function moveSouth()
+{
+    currentRoom = south[currentRoom];
+    main();
+}
+function moveEast()
+{
+    currentRoom = east[currentRoom];
+    main();
+}
+function moveWest()
+{
+    currentRoom = west[currentRoom];
+    main();
 }
