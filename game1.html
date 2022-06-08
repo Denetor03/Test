@@ -26,21 +26,24 @@
         <label id="label3"></label>
         <br>
         <div class="Controls">
-            <div class="movementButtons">
-                <form action="#">
-                    <input type="text" id="input" placeholder = "start your adventure"></input>
-                    <input type="submit" onclick="main()"></input>
-                </form>
 
-            </div>
 
-            <div class="movementButtons">
+            <div class="movementButtons" id="b">
                 <button id="north" onclick="moveNorth()">North</button>
                 <button id="south" onclick="moveSouth()">South</button>
                 <button id="east" onclick="moveEast()">East</button>
                 <button id="west" onclick="moveWest()">West</button>
                 <button id="look" onclick="look()">Look around</button>
             </div>
+
+            <div class="movementButtons" id="a">
+                <form action="#">
+                    <input type="text" id="input" placeholder = "start your adventure"></input>
+                    <input type="submit" value="confirm" onclick="main()"></input>
+                </form>
+
+            </div>
+            
         </div>
     </div>
 
