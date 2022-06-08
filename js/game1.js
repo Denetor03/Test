@@ -48,7 +48,10 @@ function main()
     var direction = inputArray[1];
     if(allowedActions.indexOf(action) == -1)
     {
-        document.getElementById("label3").innerHTML = "wtf do you want?";
+        if(!action == ""){
+            document.getElementById("label3").innerHTML = "wtf do you want?";
+        }
+        
     }
     else if(action == "move")
     {

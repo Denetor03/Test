@@ -5,6 +5,7 @@ body{
     background-size:	cover;	
     color: #f2f2f2;
     font-size: 50px;
+    font-family: 'cairo', sans-serif;
 
 }
 .topnav {
@@ -43,32 +44,34 @@ grid-container {
     
 }
 .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    background-color: rgba(167, 167, 167, 0.267);
+    border: 2px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center;
+    margin: auto;
 }
 .grid-item1{
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
+    background-color: rgba(167, 167, 167, 0.267);
+    border: 2px solid rgba(0, 0, 0, 0.8);
     padding: 20px;
     font-size: 30px;
     text-align: center; 
     grid-column-start: 1;
     grid-column-end: 4;
+    margin: auto;
 }
 
 .grid-item:hover{
-    background-color: rgb(71, 71, 71);
+    background-color: rgba(255, 22, 22, 0.205);
     color: red;
-    transition: 0.5s;
+    transition: 0.1s;
 }
 
 .grid-item1:hover{
-    background-color: rgb(71, 71, 71);
+    background-color: rgba(255, 22, 22, 0.205);
     color: red;
-    transition: 0.5s;
+    transition: 0.1s;
 }
 
 .output{
@@ -106,4 +109,8 @@ input{
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+}
+a:visited{
+    text-decoration: none;
+    color: white;
 }
