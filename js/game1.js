@@ -43,6 +43,7 @@ function main()
 {
     document.getElementById("label3").innerHTML = "";
     input = getInput();
+    document.getElementById("input").value = "";
     var inputArray = input.split(" ");
     var action = inputArray[0];
     var direction = inputArray[1];
