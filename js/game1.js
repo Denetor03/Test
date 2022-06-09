@@ -1,11 +1,17 @@
 var currentRoom = 0;
+var lastRoom = 0;
+var follow = false;
+
 const allowedDirections = ["north", "south", "east", "west"];
 const allowedActions = ["move", "look", "drop", "examine", "help"];
+
 const north = {0:0, 1: 2, 2:0, 3:3, 4:4, 5:5, 6:5, 7:6, 8:8, 9:9};
 const south = {0:2, 1:1, 2:1, 3:3, 4:4, 5:6, 6:7, 7:7, 8:8, 9:9};
 const east = {0:0, 1:1, 2:3, 3:4, 4:5, 5:8, 6:7, 7:8, 8:9, 9:9};
 const west = {0:0, 1:1, 2:2, 3:2, 4:3, 5:4, 6:6, 7:7, 8:5, 9:8};
+
 const compass = {"north":north, "south":south, "east":east, "west":west};
+
 const description = {0 : "you are in a burning room, there are sparking wires everywhere",
                     1 : "It looks like an engine room",
                     2 : "you are narrow hallway",
@@ -38,11 +44,15 @@ const lookAround = {0: "it looks like something exploded here",
                     7: "Many boxes are stacked here. Some of them are on the ground",
                     8: "looks creepy, can't see much.",
                     9: "there is blood on the controls, but there are no corpses."};
-            
+    
+const followMessage = [
+                    "it feels like something is watching you.",
+                    "what was that sound?!",
+                    "it feels like something is following you.",
 
-document.getElementById("label1").innerHTML = description[currentRoom];
-document.getElementById("label2").innerHTML = Directions[currentRoom];
-var input = getInput();
+                        ];
+
+main();
 function main()
 {
     document.getElementById("label3").innerHTML = "";
@@ -51,97 +61,69 @@ function main()
     var inputArray = input.split(" ");
     var action = inputArray[0];
     var direction = inputArray[1];
-    if(allowedActions.indexOf(action) == -1)
-    {
+    if(allowedActions.indexOf(action) == -1){
         if(!action == ""){
             document.getElementById("label3").innerHTML = "wtf do you want?";
         }
         
     }
-    else if(action == "move")
-    {
-        if(allowedDirections.indexOf(direction) == -1)
-        {
+    else if(action == "move"){
+        if(allowedDirections.indexOf(direction) == -1){
             document.getElementById("label3").innerHTML = "I don't understand where you want to go.";
         }
-        else
-        {
+        else{
             currentRoom = move(currentRoom, direction);
         }
     }
-    else if(action == "look")
-    {
-        if(inputArray.length == 1)
-        {
+    else if(action == "look"){
+        if(inputArray.length == 1){
             document.getElementById("label3").innerHTML = "You need to tell me what you want to take.";
         }
-        else
-        {
+        else{
             look(currentRoom, inputArray[1]);
         }
     }
-    else if(action == "drop")
-    {
-        if(inputArray.length == 1)
-        {
-            document.getElementById("label3").innerHTML = "You need to tell me what you want to drop.";
-        }
-        else
-        {
-            drop(currentRoom, inputArray[1]);
-        }
-    }
-    else if(action == "examine")
-    {
-        if(inputArray.length == 1)
-        {
+    /*else if(action == "examine"){
+        if(inputArray.length == 1){
             console.log("You need to tell me what you want to examine.");
         }
-        else
-        {
+        else{
             examine(currentRoom, inputArray[1]);
         }
     }
-    else if(action == "help")
-    {
+    else if(action == "help"){
         help();
-    }
+    }*/
+
     document.getElementById("label1").innerHTML = description[currentRoom];
     document.getElementById("label2").innerHTML = Directions[currentRoom];
 }
 
-function getInput()
-{
+function getInput(){
     return document.getElementById("input").value;
 }
 
-function move(currentRoom, direction)
-{
+function move(currentRoom, direction){
     var newRoom = compass[direction][currentRoom];
     return newRoom;
 }
 
-function moveNorth()
-{
+function moveNorth(){
     currentRoom = north[currentRoom];
     main();
 }
-function moveSouth()
-{
+function moveSouth(){
     currentRoom = south[currentRoom];
     main();
 }
-function moveEast()
-{
+function moveEast(){
     currentRoom = east[currentRoom];
     main();
 }
-function moveWest()
-{
+function moveWest(){
     currentRoom = west[currentRoom];
     main();
 }
-function look()
-{
+function look(){
     document.getElementById("label3").innerHTML = lookAround[currentRoom];
 }
