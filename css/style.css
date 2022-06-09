@@ -131,10 +131,28 @@ a:visited{
     .topnav a{
         font-size: 15px;
     }
+    #followme{
+        width:80%;
+    }
+    a{
+        font-size: 15px;
+    }
+    img{
+        width: 10px;
+    }
+    li{
+        display: list-item;
+    }
+
+}
+a{
+    text-decoration: none;
+    color: white;
 }
 li{
     display: inline;
     font-size: 35px;
+    
 }	
 
 #followme{
