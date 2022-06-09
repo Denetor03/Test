@@ -4,7 +4,7 @@ var secondlastRoom = 0;
 var follow = false;
 var followCountdown= 0;
 var alive = true;
-
+document.getElementById("hide").style.visibility = "hidden";
 
 const allowedDirections = ["north", "south", "east", "west"];           //list to check for valid directions
 const allowedActions = ["move", "look"];                                // " for actions
@@ -54,7 +54,9 @@ const followMessage = [
                     "what was that sound?!",
                     "it feels like something is following you.",
                     "it looked like shadow moved in the room you came from",
-                    "there are screaching sounds behind you, chills run down your spine"];
+                    "there are screaching sounds behind you, chills run down your spine",
+                    "there is something right behind you"
+                ];
 
 main();
 function main()
@@ -101,21 +103,24 @@ function main()
         if(followCountdown > 3 & currentRoom == secondlastRoom){
             alive = false;
         }
-        if(followCountdown > 4){
+        if(followCountdown > 6){
             alive = false;
         }
     }
 
     if(currentRoom == 9){
         follow = true;
+        document.getElementById("hide").style.visibility = "visible";
     }
 
     if(!alive){                                                     //check if player is alive
-        document.getElementById("label1").innerHTML = "------------";
+        document.getElementById("label1").innerHTML = "-------------------------------------------------";
         document.getElementById("label2").innerHTML = "You are dead.";
-        document.getElementById("label3").innerHTML = "------------";
+        document.getElementById("label3").innerHTML = "------You have been consumed by the shadows------";
     }
-    setTimeout(reactivateButton, 5000);         //reactivate button after 5 seconds
+
+
+    setTimeout(reactivateButton, 3000);         //reactivate button after 5 seconds
 }
 
 function getInput(){                                
@@ -159,6 +164,10 @@ function moveWest(){                    //move west
 
 function look(){
     document.getElementById("label3").innerHTML = lookAround[currentRoom];
+    if(followCountdown > 5){
+        alive = false;
+        main();
+    }
 }
 
 function deactivateButton()             //deactivate button 
@@ -176,4 +185,11 @@ function reactivateButton()             //reactivate button
     document.getElementById("east").disabled = false;
     document.getElementById("west").disabled = false;
 
+}
+
+function hide(){
+    var x = 1;
+    follow = false;
+    followCountdown=x;
+    x++;
 }
