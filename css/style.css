@@ -7,6 +7,9 @@ body{
     font-family: 'cairo', sans-serif;
 
 }
+p{
+    font-size: 25px;
+}
 
 .topnav {
     background-color: gray;
@@ -129,3 +132,13 @@ a:visited{
         font-size: 15px;
     }
 }
+li{
+    display: inline;
+    font-size: 30px;
+    font-family: 'Cairo', sans-serif;
+}	
+
+#followme{
+	padding-top: : 100px
+	margin-bottom: 100px;
+	}
