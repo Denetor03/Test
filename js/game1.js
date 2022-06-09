@@ -4,7 +4,6 @@ var secondlastRoom = 0;
 var follow = false;
 var followCountdown= 0;
 var alive = true;
-document.getElementById("hide").style.visibility = "hidden";
 
 const allowedDirections = ["north", "south", "east", "west"];           //list to check for valid directions
 const allowedActions = ["move", "look"];                                // " for actions
@@ -114,9 +113,9 @@ function main()
     }
 
     if(!alive){                                                     //check if player is alive
-        document.getElementById("label1").innerHTML = "-------------------------------------------------";
+        document.getElementById("label1").innerHTML = "--------------------------------------------";
         document.getElementById("label2").innerHTML = "You are dead.";
-        document.getElementById("label3").innerHTML = "------You have been consumed by the shadows------";
+        document.getElementById("label3").innerHTML = "---You have been consumed by the shadows---";
     }
 
 
@@ -192,4 +191,8 @@ function hide(){
     follow = false;
     followCountdown=x;
     x++;
+}
+function restart()
+{
+    window.location.reload();
 }
