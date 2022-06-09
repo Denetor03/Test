@@ -59,7 +59,6 @@ const followMessage = [
 main();
 function main()
 {
-
     input = getInput();
     document.getElementById("input").value = "";
 
@@ -105,7 +104,6 @@ function main()
     document.getElementById("label1").innerHTML = description[currentRoom];
     document.getElementById("label2").innerHTML = Directions[currentRoom];
 
-    
     if((follow == true) & (currentRoom != lastRoom)){
         
         document.getElementById("label3").innerHTML = followMessage[followCountdown];
@@ -118,25 +116,17 @@ function main()
         }
     }
 
-
     if(currentRoom == 9){
         follow = true;
     }
-
 
     if(!alive){
         document.getElementById("label1").innerHTML = "";
         document.getElementById("label2").innerHTML = "You are dead.";
         document.getElementById("label3").innerHTML = "";
     }
+    setTimeout(reactivateButton, 5000);
 }
-
-
-
-
-
-
-
 
 function getInput(){
     return document.getElementById("input").value;
@@ -149,24 +139,28 @@ function move(currentRoom, direction){
 }
 
 function moveNorth(){
+    deactivateButton();
     secondlastRoom = lastRoom;
     lastRoom = currentRoom;
     currentRoom = north[currentRoom];
     main();
 }
 function moveSouth(){
+    deactivateButton();
     secondlastRoom = lastRoom;
     lastRoom = currentRoom;
     currentRoom = south[currentRoom];
     main();
 }
 function moveEast(){
+    deactivateButton();
     secondlastRoom = lastRoom;
     lastRoom = currentRoom;
     currentRoom = east[currentRoom];
     main();
 }
 function moveWest(){
+    deactivateButton();
     secondlastRoom = lastRoom;
     lastRoom = currentRoom;
     currentRoom = west[currentRoom];
@@ -175,4 +169,21 @@ function moveWest(){
 
 function look(){
     document.getElementById("label3").innerHTML = lookAround[currentRoom];
+}
+
+function deactivateButton()
+{
+    document.getElementById("north").disabled = true;
+    document.getElementById("south").disabled = true;
+    document.getElementById("east").disabled = true;
+    document.getElementById("west").disabled = true;
+}
+
+function reactivateButton()
+{
+    document.getElementById("north").disabled = false;
+    document.getElementById("south").disabled = false;
+    document.getElementById("east").disabled = false;
+    document.getElementById("west").disabled = false;
+
 }
