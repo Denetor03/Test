@@ -1,6 +1,10 @@
 var currentRoom = 0;
 var lastRoom = 0;
+var secondlastRoom = 0;
 var follow = false;
+var followCountdown= 0;
+var alive = true;
+
 
 const allowedDirections = ["north", "south", "east", "west"];
 const allowedActions = ["move", "look", "drop", "examine", "help"];
@@ -36,7 +40,7 @@ const Directions = {0 : "there is only one way to go(south)",
 
 const lookAround = {0: "it looks like something exploded here",
                     1: "The engine looks inactive. It is probebly connected to the first room.",
-                    2: "It is a bit craped in here. Also there are wires everywhere.",
+                    2: "It is a bit cramped in here. Also there are wires everywhere.",
                     3: "It looks like people left this room in a hurry. There is chaos everywhere.",
                     4: "It is a very boring room. There is nothing special here.",
                     5: "There are scratch marks on the meeting table. Doesn't look like anything a human could have done.",
@@ -49,18 +53,18 @@ const followMessage = [
                     "it feels like something is watching you.",
                     "what was that sound?!",
                     "it feels like something is following you.",
-
-                        ];
+                    "it looked like shadow moved in the room you came from",
+                    "there are screaching sounds behind you, chills run down your spine"];
 
 main();
 function main()
 {
-    document.getElementById("label3").innerHTML = "";
+
     input = getInput();
     document.getElementById("input").value = "";
 
 
-    
+
     var inputArray = input.split(" ");
     var action = inputArray[0];
     var direction = inputArray[1];
@@ -100,33 +104,75 @@ function main()
 
     document.getElementById("label1").innerHTML = description[currentRoom];
     document.getElementById("label2").innerHTML = Directions[currentRoom];
+
+    
+    if((follow == true) & (currentRoom != lastRoom)){
+        
+        document.getElementById("label3").innerHTML = followMessage[followCountdown];
+        followCountdown++;
+        if(followCountdown > 2 & currentRoom == secondlastRoom){
+            alive = false;
+        }
+        if(followCountdown > 4){
+            alive = false;
+        }
+    }
+
+
+    if(currentRoom == 9){
+        follow = true;
+    }
+
+
+    if(!alive){
+        document.getElementById("label1").innerHTML = "";
+        document.getElementById("label2").innerHTML = "You are dead.";
+        document.getElementById("label3").innerHTML = "";
+    }
 }
+
+
+
+
+
+
+
 
 function getInput(){
     return document.getElementById("input").value;
 }
 
 function move(currentRoom, direction){
+    lastRoom = currentRoom;
     var newRoom = compass[direction][currentRoom];
     return newRoom;
 }
 
 function moveNorth(){
+    secondlastRoom = lastRoom;
+    lastRoom = currentRoom;
     currentRoom = north[currentRoom];
     main();
 }
 function moveSouth(){
+    secondlastRoom = lastRoom;
+    lastRoom = currentRoom;
     currentRoom = south[currentRoom];
     main();
 }
 function moveEast(){
+    secondlastRoom = lastRoom;
+    lastRoom = currentRoom;
     currentRoom = east[currentRoom];
     main();
 }
 function moveWest(){
+    secondlastRoom = lastRoom;
+    lastRoom = currentRoom;
     currentRoom = west[currentRoom];
     main();
 }
+
 function look(){
     document.getElementById("label3").innerHTML = lookAround[currentRoom];
 }
