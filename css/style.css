@@ -162,3 +162,6 @@ li{
     bottom: 0;
     width:100%
 }
+#hide{
+    visibility: hidden;
+}

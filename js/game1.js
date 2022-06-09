@@ -116,6 +116,7 @@ function main()
         document.getElementById("label1").innerHTML = "--------------------------------------------";
         document.getElementById("label2").innerHTML = "You are dead.";
         document.getElementById("label3").innerHTML = "---You have been consumed by the shadows---";
+        document.getElementById("restart").style.visibility = "visible";
     }
 
 
