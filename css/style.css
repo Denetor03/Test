@@ -134,11 +134,13 @@ a:visited{
 }
 li{
     display: inline;
-    font-size: 30px;
-    font-family: 'Cairo', sans-serif;
+    font-size: 35px;
 }	
 
 #followme{
-	padding-top: : 100px
-	margin-bottom: 100px;
-	}
+	padding-top: 5px;
+	text-align: center;
+    position: absolute;
+    bottom: 0;
+    width:100%
+}
