@@ -6,17 +6,17 @@ var followCountdown= 0;
 var alive = true;
 
 
-const allowedDirections = ["north", "south", "east", "west"];
-const allowedActions = ["move", "look", "drop", "examine", "help"];
+const allowedDirections = ["north", "south", "east", "west"];           //list to check for valid directions
+const allowedActions = ["move", "look"];                                // " for actions
 
-const north = {0:0, 1: 2, 2:0, 3:3, 4:4, 5:5, 6:5, 7:6, 8:8, 9:9};
+const north = {0:0, 1: 2, 2:0, 3:3, 4:4, 5:5, 6:5, 7:6, 8:8, 9:9};      //matrix for room connections direction {this room:to this room}
 const south = {0:2, 1:1, 2:1, 3:3, 4:4, 5:6, 6:7, 7:7, 8:8, 9:9};
 const east = {0:0, 1:1, 2:3, 3:4, 4:5, 5:8, 6:7, 7:8, 8:9, 9:9};
 const west = {0:0, 1:1, 2:2, 3:2, 4:3, 5:4, 6:6, 7:7, 8:5, 9:8};
 
 const compass = {"north":north, "south":south, "east":east, "west":west};
 
-const description = {0 : "you are in a burning room, there are sparking wires everywhere",
+const description = {0 : "you are in a burning room, there are sparking wires everywhere",      //room descriptions
                     1 : "It looks like an engine room",
                     2 : "you are narrow hallway",
                     3 : "You are in the sleeping quarters.",
@@ -27,7 +27,7 @@ const description = {0 : "you are in a burning room, there are sparking wires ev
                     8 : "a long hallway, the lights are not working.",
                     9 : "You are on the bridge of a spaceship"       };
 
-const Directions = {0 : "there is only one way to go(south)",
+const Directions = {0 : "there is only one way to go(south)",                   //room directions
                     1 : "there is only one way to go(north)",
                     2 : "there are three ways to go(north, south, east)",
                     3 : "2 ways (east, west)",
@@ -38,7 +38,7 @@ const Directions = {0 : "there is only one way to go(south)",
                     8 : "You can go(east, west).",
                     9 : "you can only go back ( west)."};
 
-const lookAround = {0: "it looks like something exploded here",
+const lookAround = {0: "it looks like something exploded here",                                         //room look around messages
                     1: "The engine looks inactive. It is probebly connected to the first room.",
                     2: "It is a bit cramped in here. Also there are wires everywhere.",
                     3: "It looks like people left this room in a hurry. There is chaos everywhere.",
@@ -50,7 +50,7 @@ const lookAround = {0: "it looks like something exploded here",
                     9: "there is blood on the controls, but there are no corpses."};
     
 const followMessage = [
-                    "it feels like something is watching you.",
+                    "it feels like something is watching you.",                 //follow messages
                     "what was that sound?!",
                     "it feels like something is following you.",
                     "it looked like shadow moved in the room you came from",
@@ -60,20 +60,20 @@ main();
 function main()
 {
     input = getInput();
-    document.getElementById("input").value = "";
+    document.getElementById("input").value = "";    //clear input field
 
 
 
-    var inputArray = input.split(" ");
-    var action = inputArray[0];
-    var direction = inputArray[1];
-    if(allowedActions.indexOf(action) == -1){
+    var inputArray = input.split(" ");      //split input into array
+    var action = inputArray[0];             //get action
+    var direction = inputArray[1];          //get direction
+    if(allowedActions.indexOf(action) == -1){       //check if action is valid
         if(!action == ""){
             document.getElementById("label3").innerHTML = "wtf do you want?";
         }
         
     }
-    else if(action == "move"){
+    else if(action == "move"){              //check if action is move
         if(allowedDirections.indexOf(direction) == -1){
             document.getElementById("label3").innerHTML = "I don't understand where you want to go.";
         }
@@ -81,7 +81,7 @@ function main()
             currentRoom = move(currentRoom, direction);
         }
     }
-    else if(action == "look"){
+    else if(action == "look"){              //check if action is look
         if(inputArray.length == 1){
             document.getElementById("label3").innerHTML = "You need to tell me what you want to take.";
         }
@@ -89,22 +89,12 @@ function main()
             look(currentRoom, inputArray[1]);
         }
     }
-    /*else if(action == "examine"){
-        if(inputArray.length == 1){
-            console.log("You need to tell me what you want to examine.");
-        }
-        else{
-            examine(currentRoom, inputArray[1]);
-        }
-    }
-    else if(action == "help"){
-        help();
-    }*/
 
-    document.getElementById("label1").innerHTML = description[currentRoom];
-    document.getElementById("label2").innerHTML = Directions[currentRoom];
 
-    if((follow == true) & (currentRoom != lastRoom)){
+    document.getElementById("label1").innerHTML = description[currentRoom];         //display room description
+    document.getElementById("label2").innerHTML = Directions[currentRoom];          //display room directions
+
+    if((follow == true) & (currentRoom != lastRoom)){                           
         
         document.getElementById("label3").innerHTML = followMessage[followCountdown];
         followCountdown++;
@@ -120,15 +110,15 @@ function main()
         follow = true;
     }
 
-    if(!alive){
+    if(!alive){                                                     //check if player is alive
         document.getElementById("label1").innerHTML = "";
         document.getElementById("label2").innerHTML = "You are dead.";
         document.getElementById("label3").innerHTML = "";
     }
-    setTimeout(reactivateButton, 5000);
+    setTimeout(reactivateButton, 5000);         //reactivate button after 5 seconds
 }
 
-function getInput(){
+function getInput(){                                
     return document.getElementById("input").value;
 }
 
@@ -138,28 +128,28 @@ function move(currentRoom, direction){
     return newRoom;
 }
 
-function moveNorth(){
-    deactivateButton();
+function moveNorth(){                    //move north
+    deactivateButton();                                     //deactivate buttons
     secondlastRoom = lastRoom;
     lastRoom = currentRoom;
     currentRoom = north[currentRoom];
-    main();
+    main();                                                 //call main function
 }
-function moveSouth(){
+function moveSouth(){                   //move south
     deactivateButton();
     secondlastRoom = lastRoom;
     lastRoom = currentRoom;
     currentRoom = south[currentRoom];
     main();
 }
-function moveEast(){
+function moveEast(){                    //move east
     deactivateButton();
     secondlastRoom = lastRoom;
     lastRoom = currentRoom;
     currentRoom = east[currentRoom];
     main();
 }
-function moveWest(){
+function moveWest(){                    //move west
     deactivateButton();
     secondlastRoom = lastRoom;
     lastRoom = currentRoom;
@@ -171,7 +161,7 @@ function look(){
     document.getElementById("label3").innerHTML = lookAround[currentRoom];
 }
 
-function deactivateButton()
+function deactivateButton()             //deactivate button 
 {
     document.getElementById("north").disabled = true;
     document.getElementById("south").disabled = true;
@@ -179,7 +169,7 @@ function deactivateButton()
     document.getElementById("west").disabled = true;
 }
 
-function reactivateButton()
+function reactivateButton()             //reactivate button
 {
     document.getElementById("north").disabled = false;
     document.getElementById("south").disabled = false;
