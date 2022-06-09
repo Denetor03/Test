@@ -162,6 +162,12 @@ li{
     bottom: 0;
     width:100%
 }
+#hide{
+    visibility: hidden;
+}
 #restart{
+    visibility: hidden;
+}
+.textinput{
     visibility: hidden;
 }
