@@ -98,7 +98,7 @@ function main()
         
         document.getElementById("label3").innerHTML = followMessage[followCountdown];
         followCountdown++;
-        if(followCountdown > 2 & currentRoom == secondlastRoom){
+        if(followCountdown > 3 & currentRoom == secondlastRoom){
             alive = false;
         }
         if(followCountdown > 4){
@@ -111,9 +111,9 @@ function main()
     }
 
     if(!alive){                                                     //check if player is alive
-        document.getElementById("label1").innerHTML = "";
+        document.getElementById("label1").innerHTML = "------------";
         document.getElementById("label2").innerHTML = "You are dead.";
-        document.getElementById("label3").innerHTML = "";
+        document.getElementById("label3").innerHTML = "------------";
     }
     setTimeout(reactivateButton, 5000);         //reactivate button after 5 seconds
 }
