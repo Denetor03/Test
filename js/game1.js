@@ -5,6 +5,7 @@ var follow = false;
 var followCountdown= 0;
 var alive = true;
 
+
 const allowedDirections = ["north", "south", "east", "west"];           //list to check for valid directions
 const allowedActions = ["move", "look"];                                // " for actions
 
@@ -56,7 +57,8 @@ const followMessage = [
                     "there are screaching sounds behind you, chills run down your spine",
                     "there is something right behind you"
                 ];
-
+                
+deactivateButton();
 main();
 function main()
 {
@@ -120,7 +122,16 @@ function main()
     }
 
 
-    setTimeout(reactivateButton, 3000);         //reactivate button after 5 seconds
+    var counter = 3;
+    var output = document.getElementById('foo');
+    var interval = setInterval(function() {
+    if (counter == 0) {
+        clearInterval(interval);
+    }
+    output.innerHTML = "" + counter;
+    counter--;
+    }, 750);
+    setTimeout(reactivateButton, 3000);                     //reactivate button after 5 seconds
 }
 
 function getInput(){                                
@@ -180,6 +191,7 @@ function deactivateButton()             //deactivate button
 
 function reactivateButton()             //reactivate button
 {
+    document.getElementById('foo').innerHTML = "";
     document.getElementById("north").disabled = false;
     document.getElementById("south").disabled = false;
     document.getElementById("east").disabled = false;
@@ -197,3 +209,5 @@ function restart()
 {
     window.location.reload();
 }
+
+  
