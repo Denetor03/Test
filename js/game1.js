@@ -61,7 +61,7 @@ function main()
 {
     input = getInput();
     document.getElementById("input").value = "";    //clear input field
-
+    document.getElementById("label3").innerHTML = "";
 
 
     var inputArray = input.split(" ");      //split input into array
