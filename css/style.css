@@ -152,7 +152,7 @@ a{
 li{
     display: inline;
     font-size: 35px;
-    
+    display: inline-block;
 }	
 
 #followme{
@@ -170,4 +170,8 @@ li{
 }
 .textinput{
     visibility: hidden;
+}
+#links{
+    margin: auto;
+    text-align: center;
 }
