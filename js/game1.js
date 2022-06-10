@@ -7,7 +7,7 @@ var alive = true;
 
 
 const allowedDirections = ["north", "south", "east", "west"];           //list to check for valid directions
-const allowedActions = ["move", "look"];                                // " for actions
+const allowedActions = ["move", "look", "kill"];                                // " for actions
 
 const north = {0:0, 1: 2, 2:0, 3:3, 4:4, 5:5, 6:5, 7:6, 8:8, 9:9};      //matrix for room connections direction {this room:to this room}
 const south = {0:2, 1:1, 2:1, 3:3, 4:4, 5:6, 6:7, 7:7, 8:8, 9:9};
@@ -60,79 +60,6 @@ const followMessage = [
                 
 deactivateButton();
 main();
-function main()
-{
-    input = getInput();
-    document.getElementById("input").value = "";    //clear input field
-    document.getElementById("label3").innerHTML = "";
-
-
-    var inputArray = input.split(" ");      //split input into array
-    var action = inputArray[0];             //get action
-    var direction = inputArray[1];          //get direction
-    if(allowedActions.indexOf(action) == -1){       //check if action is valid
-        if(!action == ""){
-            document.getElementById("label3").innerHTML = "wtf do you want?";
-        }
-        
-    }
-    else if(action == "move"){              //check if action is move
-        if(allowedDirections.indexOf(direction) == -1){
-            document.getElementById("label3").innerHTML = "I don't understand where you want to go.";
-        }
-        else{
-            currentRoom = move(currentRoom, direction);
-        }
-    }
-    else if(action == "look"){              //check if action is look
-        if(inputArray.length == 1){
-            document.getElementById("label3").innerHTML = "You need to tell me what you want to take.";
-        }
-        else{
-            look(currentRoom, inputArray[1]);
-        }
-    }
-
-
-    document.getElementById("label1").innerHTML = description[currentRoom];         //display room description
-    document.getElementById("label2").innerHTML = Directions[currentRoom];          //display room directions
-
-    if((follow == true) & (currentRoom != lastRoom)){                           
-        
-        document.getElementById("label3").innerHTML = followMessage[followCountdown];
-        followCountdown++;
-        if(followCountdown > 3 & currentRoom == secondlastRoom){
-            alive = false;
-        }
-        if(followCountdown > 6){
-            alive = false;
-        }
-    }
-
-    if(currentRoom == 9){
-        follow = true;
-        document.getElementById("hide").style.visibility = "visible";
-    }
-
-    if(!alive){                                                     //check if player is alive
-        document.getElementById("label1").innerHTML = "--------------------------------";
-        document.getElementById("label2").innerHTML = "You are dead. <br> You have been consumed by the shadows";
-        document.getElementById("label3").innerHTML = "--------------------------------";
-        document.getElementById("restart").style.visibility = "visible";
-    }
-
-
-    var counter = 3;
-    var output = document.getElementById('foo');
-    var interval = setInterval(function() {
-    if (counter == 0) {
-        clearInterval(interval);
-    }
-    output.innerHTML = "" + counter;
-    counter--;
-    }, 750);
-    setTimeout(reactivateButton, 3000);                     //reactivate button after 5 seconds
-}
 
 function getInput(){                                
     return document.getElementById("input").value;
@@ -191,12 +118,12 @@ function deactivateButton()             //deactivate button
 
 function reactivateButton()             //reactivate button
 {
-    document.getElementById('foo').innerHTML = "";
+    document.getElementById("foo").innerHTML = "";
     document.getElementById("north").disabled = false;
     document.getElementById("south").disabled = false;
     document.getElementById("east").disabled = false;
     document.getElementById("west").disabled = false;
-
+    
 }
 
 function hide(){
@@ -205,9 +132,86 @@ function hide(){
     followCountdown=x;
     x++;
 }
+
 function restart()
 {
     window.location.reload();
 }
 
-  
+
+function main()
+{
+    input = getInput();
+    document.getElementById("input").value = "";    //clear input field
+    document.getElementById("label3").innerHTML = "";
+
+
+    var inputArray = input.split(" ");      //split input into array
+    var action = inputArray[0];             //get action
+    var direction = inputArray[1];          //get direction
+    if(allowedActions.indexOf(action) == -1){       //check if action is valid
+        if(!action == ""){
+            document.getElementById("label3").innerHTML = "wtf do you want?";
+        }
+        
+    }
+    if(action == "move"){              //check if action is move
+        if(allowedDirections.indexOf(direction) == -1){
+            document.getElementById("label3").innerHTML = "I don't understand where you want to go.";
+        }
+        else{
+            currentRoom = move(currentRoom, direction);
+        }
+    }
+    if(action == "look"){              //check if action is look
+        if(inputArray.length == 1){
+            document.getElementById("label3").innerHTML = "You need to tell me what you want to take.";
+        }
+        else{
+            look(currentRoom, inputArray[1]);
+        }
+    }
+    if(action == "kill"){              //check if action is look
+        alive = false;
+    }
+
+
+    document.getElementById("label1").innerHTML = description[currentRoom];         //display room description
+    document.getElementById("label2").innerHTML = Directions[currentRoom];          //display room directions
+
+    if((follow == true) & (currentRoom != lastRoom)){                           
+        
+        document.getElementById("label3").innerHTML = followMessage[followCountdown];
+        followCountdown++;
+        if(followCountdown > 3 & currentRoom == secondlastRoom){
+            alive = false;
+        }
+        if(followCountdown > 6){
+            alive = false;
+        }
+    }
+
+    if(currentRoom == 9){
+        follow = true;
+        document.getElementById("hide").style.visibility = "visible";
+    }
+
+    if(!alive){                                                     //check if player is alive
+        document.getElementById("label1").innerHTML = "--------------------------------";
+        document.getElementById("label2").innerHTML = "You are dead. <br> You have been consumed by the shadows";
+        document.getElementById("label3").innerHTML = "--------------------------------";
+        document.getElementById("restart").style.visibility = "visible";
+    }
+
+
+    var counter = 3;
+    var output = document.getElementById('foo');
+    var interval = setInterval(function() {
+    if (counter == 0) {
+        clearInterval(interval);
+    }
+    output.innerHTML = "" + counter;
+    counter--;
+    }, 750);
+    setTimeout(reactivateButton, 3000);                     //reactivate button after 5 seconds
+}

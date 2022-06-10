@@ -5,8 +5,8 @@ body{
     color: #f2f2f2;
     font-size: 50px;
     font-family: 'cairo', sans-serif;
-
 }
+
 p{
     font-size: 25px;
 }
@@ -73,14 +73,16 @@ p{
 .output{
     text-align: center;
     height: 50%;
-    background-color: #4e4e4e3a;
+    background-color: #9b00004b;
+    border-radius: 15px;
 }
+
 .movementButtons
 {
     text-align: center;
     height: 50%;
-    background-color: #582d2d91;
 }
+
 button{
     background-color: #4e4e4e3a;
     border-radius: 10px;
@@ -106,6 +108,7 @@ input{
     margin: 4px 2px;
     cursor: pointer;
 }
+
 a:visited{
     text-decoration: none;
     color: white;
@@ -117,6 +120,8 @@ a:visited{
     left: 0;
     width: 100%;
     height: 40%;
+    background-color: #ff000036;
+    border-radius: 15px;
     
 }
 @media screen and (max-width: 700px){
@@ -126,30 +131,42 @@ a:visited{
         background-position: 50% 50%;
         background-repeat: repeat;
     }
+
     .Controls{
         height: 50%;
     }
+
     .topnav a{
         font-size: 15px;
     }
+
     #followme{
         width:80%;
     }
+
     a{
         font-size: 15px;
     }
+
     img{
         width: 10px;
     }
+
     li{
         display: list-item;
     }
 
+    .textinput{
+        visibility: hidden;
+    }
+
 }
+
 a{
     text-decoration: none;
     color: white;
 }
+
 li{
     display: inline;
     font-size: 35px;
@@ -163,16 +180,21 @@ li{
     bottom: 0;
     width:100%
 }
+
 #hide{
     visibility: hidden;
 }
+
 #restart{
     visibility: hidden;
 }
-.textinput{
-    visibility: hidden;
-}
+
 #links{
     margin: auto;
     text-align: center;
+}
+#foo{
+    position: relative;
+    right: 13%;
+    top: 1%;
 }
