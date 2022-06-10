@@ -115,9 +115,9 @@ function main()
     }
 
     if(!alive){                                                     //check if player is alive
-        document.getElementById("label1").innerHTML = "-------------------------------------------";
+        document.getElementById("label1").innerHTML = "--------------------------------";
         document.getElementById("label2").innerHTML = "You are dead. <br> You have been consumed by the shadows";
-        document.getElementById("label3").innerHTML = "-------------------------------------------";
+        document.getElementById("label3").innerHTML = "--------------------------------";
         document.getElementById("restart").style.visibility = "visible";
     }
 
