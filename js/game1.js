@@ -71,31 +71,29 @@ function move(currentRoom, direction){
     return newRoom;
 }
 
-function moveNorth(){                    //move north
+function moving(){
     deactivateButton();                                     //deactivate buttons
     secondlastRoom = lastRoom;
     lastRoom = currentRoom;
+}
+
+function moveNorth(){                    //move north
+    moving();
     currentRoom = north[currentRoom];
-    main();                                                 //call main function
+    main();                                                 
 }
 function moveSouth(){                   //move south
-    deactivateButton();
-    secondlastRoom = lastRoom;
-    lastRoom = currentRoom;
+    moving();
     currentRoom = south[currentRoom];
     main();
 }
 function moveEast(){                    //move east
-    deactivateButton();
-    secondlastRoom = lastRoom;
-    lastRoom = currentRoom;
+    moving();
     currentRoom = east[currentRoom];
     main();
 }
 function moveWest(){                    //move west
-    deactivateButton();
-    secondlastRoom = lastRoom;
-    lastRoom = currentRoom;
+    moving();
     currentRoom = west[currentRoom];
     main();
 }
