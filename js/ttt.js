@@ -1,5 +1,5 @@
 var list = {a:"", b:"", c:"", d:"", e:"", f:"", g:"", h:"", i:""};
-
+var win;
 var xOrO = "X";
 
 function goon() {
@@ -15,6 +15,7 @@ function set(position){
     if(list[position] == "X" || list[position] == "O"){
         alert("This position is already taken!");
     }
+
     if ( list[position] == "" ) {
         list[position] = xOrO;
         aa = xOrO;
@@ -22,13 +23,11 @@ function set(position){
         goon();
     }
 
-
     if(checkForWin()){
+        win = checkForWin();
         freeze();
     }
-    else{
-        document.getElementById("matrix").innerHTML = "Now: " + xOrO;
-    }
+    else if(!win) document.getElementById("matrix").innerHTML = "Now: " + xOrO;
 }
 
 function checkForWin()
@@ -57,21 +56,10 @@ function checkForWin()
         document.getElementById("matrix").innerHTML = "O wins!";
         return true;
     }
-    else{
-        return false;
-    }
+    return false;
 
 }
 
-function freeze()
-{
-    list["a"] = "rawr";
-    list["b"] = "rawr";
-    list["c"] = "rawr";
-    list["d"] = "rawr";
-    list["e"] = "rawr";
-    list["f"] = "rawr";
-    list["g"] = "rawr";
-    list["h"] = "rawr";
-    list["i"] = "rawr";
+function freeze(){
+    list = {a:"y", b:"y", c:"y", d:"y", e:"y", f:"y", g:"y", h:"y", i:"y"};
 }
