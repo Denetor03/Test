@@ -63,3 +63,8 @@ function checkForWin()
 function freeze(){
     list = {a:"y", b:"y", c:"y", d:"y", e:"y", f:"y", g:"y", h:"y", i:"y"};
 }
+
+function restart()
+{
+    window.location.reload();
+}

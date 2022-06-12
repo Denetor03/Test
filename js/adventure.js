@@ -5,7 +5,7 @@ var secondlastRoom = 0;
 var follow = false;
 var followCountdown= 0;
 var alive = true;
-
+document.getElementById("restart").style.visibility = "hidden";
 //------------------------------------------------------valid directions and actions---------------------------------------------------------------
 
 const allowedDirections = ["north", "south", "east", "west"];
