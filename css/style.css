@@ -59,17 +59,28 @@ p{
 }
 
 
+.grid-item1{
+    background-color: rgb(71, 71, 71);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center; 
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.grid-item1:hover{
+    background-color: rgb(71, 71, 71);
+    color: red;
+    transition: 0.5s;
+}
+
 .grid-item:hover{
     background-color: rgba(255, 22, 22, 0.205);
     color: red;
     transition: 0.1s;
 }
 
-.grid-item1:hover{
-    background-color: rgba(255, 22, 22, 0.205);
-    color: red;
-    transition: 0.1s;
-}
 
 .output{
     text-align: center;
