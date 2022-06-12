@@ -22,43 +22,56 @@ function set(position){
         goon();
     }
 
-    document.getElementById("matrix").innerHTML = "Now: " + xOrO;
-    checkForWin();
+
+    if(checkForWin()){
+        freeze();
+    }
+    else{
+        document.getElementById("matrix").innerHTML = "Now: " + xOrO;
+    }
 }
 
 function checkForWin()
-{   
-    if(list.a, list.b, list.c == "X" ||
-        list.d, list.e, list.f == "X" ||
-        list.g, list.h, list.i == "X" ||
-        list.a, list.d, list.g == "X" ||
-        list.b, list.e, list.h == "X" ||
-        list.c, list.f, list.i == "X" ||
-        list.a, list.e, list.i == "X" ||
-        list.c, list.e, list.g == "X" ) {
+{
+    if( (list.a == "X" && list.b == "X"  && list.c == "X") ||
+        (list.d == "X" && list.e == "X"  && list.f == "X") ||
+        (list.g == "X" && list.h == "X"  && list.i == "X") ||
+        (list.a == "X" && list.d == "X"  && list.g == "X") ||
+        (list.b == "X" && list.e == "X"  && list.h == "X") ||
+        (list.c == "X" && list.f == "X"  && list.i == "X") ||
+        (list.a == "X" && list.e == "X"  && list.i == "X") ||
+        (list.c == "X" && list.e == "X"  && list.g == "X") ) {
 
         document.getElementById("matrix").innerHTML = "X wins!";
-        freeze();
+        return true;
     }
-    if(list.a, list.b, list.c == "O" ||
-        list.d, list.e, list.f == "O" ||
-        list.g, list.h, list.i == "O" ||
-        list.a, list.d, list.g == "O" ||
-        list.b, list.e, list.h == "O" ||
-        list.c, list.f, list.i == "O" ||
-        list.a, list.e, list.i == "O" ||
-        list.c, list.e, list.g == "O" ) {
+    else if( (list.a == "O" && list.b == "O"  && list.c == "O") ||
+        (list.d == "O" && list.e == "O"  && list.f == "O") ||
+        (list.g == "O" && list.h == "O"  && list.i == "O") ||
+        (list.a == "O" && list.d == "O"  && list.g == "O") ||
+        (list.b == "O" && list.e == "O"  && list.h == "O") ||
+        (list.c == "O" && list.f == "O"  && list.i == "O") ||
+        (list.a == "O" && list.e == "O"  && list.i == "O") ||
+        (list.c == "O" && list.e == "O"  && list.g == "O") ) {
 
         document.getElementById("matrix").innerHTML = "O wins!";
-        freeze();
+        return true;
+    }
+    else{
+        return false;
     }
 
 }
 
 function freeze()
 {
-    for (let i = 0; i < list.length; i++) {
-        list[i] = "rawr";
-    }
-
+    list["a"] = "rawr";
+    list["b"] = "rawr";
+    list["c"] = "rawr";
+    list["d"] = "rawr";
+    list["e"] = "rawr";
+    list["f"] = "rawr";
+    list["g"] = "rawr";
+    list["h"] = "rawr";
+    list["i"] = "rawr";
 }
