@@ -141,6 +141,7 @@ function hide(){
     follow = false;
     followCountdown=x;
     x++;
+    document.getElementById("restart").style.visibility = "hidden";
 }
 
 function restart()
