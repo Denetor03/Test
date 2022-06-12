@@ -160,6 +160,19 @@ a:visited{
         visibility: hidden;
     }
 
+    .grid-item{
+        font-size: 15px;
+        padding: 20px;
+        font-size: 15px;
+    }
+
+    .grid-container {
+        margin-top: 1%;
+        border-radius: 10px;
+        width: 60%;
+        position: relative;
+        left: -15%;
+    }
 }
 
 a{
@@ -171,7 +184,7 @@ li{
     display: inline;
     font-size: 35px;
     display: inline-block;
-}	
+}
 
 #followme{
 	padding-top: 5px;
