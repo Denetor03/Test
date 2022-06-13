@@ -18,7 +18,7 @@ typewriter = () => {
     }
 }
 window.addEventListener("load", typewriter);
-if(window.location.href.indexOf("index.html") != -1 || window.location.href == "https://denetor03.github.io/Test/" || window.location.href == "https://denetor03.github.io/Test"){
+if(!window.location.href.indexOf("matrix.html") != -1){
     fade("c1");
     fade("c2");
     fade("parent");
