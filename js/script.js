@@ -18,10 +18,13 @@ typewriter = () => {
     }
 }
 window.addEventListener("load", typewriter);
+if(window.location.href.indexOf("index.html") != -1){
+    fade("c1");
+    fade("c2");
+    fade("parent");
+}
+console.log(window.location.href);
 
-fade("c1");
-fade("c2");
-fade("parent");
 
 class Symbol {
     constructor(x, y, fontSize, canvasHeight){

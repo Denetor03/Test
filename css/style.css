@@ -247,8 +247,25 @@ span{
     left: 50%;
     transform: translate(-50%, -50%);
 }
-@keyframes blinker{
+
+@keyframes blink{
     50% {
         opacity: 0;
     }
+}
+
+#back{
+    position: absolute;
+    top: 90%;
+    left: 5%;
+    background-color: #4e4e4e3a;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
