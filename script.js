@@ -7,8 +7,21 @@ const canvas2 = document.getElementById('c2');
 const ctx2 = canvas2.getContext('2d');
 canvas2.width = window.innerWidth;
 canvas2.height = window.innerHeight;
+var messageArray = ["Denetor03"];
+var textPosition = 0;
+
+
+typewriter = () => {
+    document.querySelector("#nameprompt").innerHTML = messageArray[0].substring(0, textPosition) + "<span>\u25ae</span>";
+    if(textPosition++ <= messageArray[0].length) {
+        setTimeout(typewriter, 200);
+    }
+}
+window.addEventListener("load", typewriter);
+
 fade("c1");
 fade("c2");
+fade("parent");
 
 class Symbol {
     constructor(x, y, fontSize, canvasHeight){
@@ -111,6 +124,7 @@ function fade(id){
             clearInterval(fadeEffect);
             c1.style.display = "none";
             c2.style.display = "none";
+            getElementById("parent").visibility = "hidden";
         }
     }, 50);
 }

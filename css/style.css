@@ -236,12 +236,36 @@ body {
     padding: 0;
     height: 100%;
 }
+
 canvas {
     position: absolute;
     top:0;
     left: 0;
 }
+
 #c1{
     background-color: black;
 }
 
+span{
+    animation: blink 1s linear infinite;
+}
+
+#parent{
+    position: relative;
+    top: 40%;
+    text-align: center;
+}
+
+#nameprompt{
+    color: red;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@keyframes blinker{
+    50% {
+        opacity: 0;
+    }
+}
