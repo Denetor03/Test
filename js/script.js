@@ -17,11 +17,13 @@ typewriter = () => {
         setTimeout(typewriter, 200);
     }
 }
+//jeff
 window.addEventListener("load", typewriter);
 if(window.location.href.indexOf("gamehtml") == -1){
     fade("c1");
     fade("c2");
     fade("parent");
+    console.log("JEFF");
 }
 console.log(window.location.href);
 
@@ -74,7 +76,7 @@ class Effect {
     }
 }
 const effect = new Effect(canvas.width, canvas.height);
-let lastTime = 0;
+let lastTime = 1000;
 const fps = 60;
 const nextFrame = 1000/fps;
 let timer = 0;
@@ -122,7 +124,7 @@ function fade(id){
         }
         if (fadeTarget.style.opacity > 0) {
             fadeTarget.style.opacity -= speed;
-            speed = speed + 0.0005;
+            speed = speed + 0.0003;
         } else {
             clearInterval(fadeEffect);
             c1.style.display = "none";
