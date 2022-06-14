@@ -56,6 +56,20 @@ function checkForWin()
         document.getElementById("matrix").innerHTML = "O wins!";
         return true;
     }
+    else if(
+        list.a != "" &&
+        list.b != "" &&
+        list.c != "" &&
+        list.d != "" &&
+        list.e != "" &&
+        list.f != "" &&
+        list.g != "" &&
+        list.h != "" &&
+        list.i != ""){
+            
+            document.getElementById("matrix").innerHTML = "Draw!";
+            return true;
+        }
     return false;
 
 }
