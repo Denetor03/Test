@@ -7,15 +7,9 @@ let weather = {
             .then(( data ) => console.log(data));
     },
     displayWeather: function (data) {
-
+        const {temp} = data.main;
+        console.log(temp);
     }
 };
 
 
-function fetchWeather(city) {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`)
-        .then(response => response.json())
-        .then(( data ) => console.log(data));
-};
-
-fetchWeather("solingen");

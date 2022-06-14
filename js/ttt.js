@@ -66,7 +66,7 @@ function checkForWin()
         list.g != "" &&
         list.h != "" &&
         list.i != ""){
-            
+
             document.getElementById("matrix").innerHTML = "Draw!";
             return true;
         }
