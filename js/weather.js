@@ -10,7 +10,9 @@ let weather = {
         const {temp} = data.main;
         console.log(temp);
         const {description} = data.weather[0];
-        document.getElementById("temperatur").innerHTML = temp + "°" + "<br>" + description;
+        document.getElementById("temperatur").innerHTML =
+        "Temp: " + temp + "°" + "<br>" + 
+        "description: " + description;
     }
 };
 const button = document.getElementById("wButton");
