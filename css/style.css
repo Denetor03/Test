@@ -248,13 +248,6 @@ span{
     transform: translate(-50%, -50%);
 }
 
-#weather{
-    position: relative;
-    top: 40%;
-    text-align: center;
-    width: 70%;
-    padding: 10%;
-}
 
 .weather{
     border-radius: 15px;
@@ -262,6 +255,7 @@ span{
     border-style: solid;
     position: relative;
     width: 60%;
+    text-align: center;
 }
 
 @keyframes blink{
