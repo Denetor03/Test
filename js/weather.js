@@ -4,13 +4,18 @@ let weather = {
     fetchWeather: function (city) {
         fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${this.apiKey}&units=metric`)
             .then(response => response.json())
-            .then(( data ) => displayWeather(data));
+            .then(( data ) => this.displayWeather(data));
     },
     displayWeather: function (data) {
         const {temp} = data.main;
         console.log(temp);
+        const {description} = data.weather[0];
+        document.getElementById("temperatur").innerHTML = temp + "°" + "<br>" + description;
     }
 };
-weather.displayWeather(weather.fetchWeather("Solingen"));
+const button = document.getElementById("wButton");
+button.addEventListener("click", () => {
+weather.fetchWeather(document.getElementById("wInput").value)
+});
 
 
