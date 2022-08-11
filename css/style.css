@@ -202,7 +202,7 @@ li{
 	text-align: center;
     position: absolute;
     bottom: 0;
-    width:100%
+    width:99%
 }
 
 #hide{
@@ -214,6 +214,7 @@ li{
     margin: auto;
     text-align: center;
 }
+
 #foo{
     position: relative;
     right: 13%;
@@ -292,9 +293,4 @@ span{
     left: 0;
     width: 100%;
     height: 100%;
-}
-
-.subcounter{
-    pointer-events: none;
-    background-color: white;
 }
