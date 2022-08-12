@@ -27,7 +27,9 @@
     <div class="container my-2 mx-2 text-left converter">
     <?php
         try{
-            $input = $_GET["input"];
+            //replace
+            $input =  str_replace( "\n",'<br>', $_GET["input"]);
+
         }
         catch(Exception $e){}
         include("Parsedown.php");
