@@ -19,7 +19,7 @@ typewriter = () => {
 }
 //jeff
 window.addEventListener("load", typewriter);
-if(window.location.href.indexOf("gamehtml") == -1){
+if(window.location.href.indexOf("_html") == -1){
     fade("c1");
     fade("c2");
     fade("parent");
