@@ -23,8 +23,8 @@
             Contact
         </a>
     </div>
-
     <div class="container my-2 mx-2 text-left converter">
+    <h1>Markdown converter</h1>
     <?php
         try{
             //replace
