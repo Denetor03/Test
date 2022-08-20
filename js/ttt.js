@@ -32,6 +32,7 @@ function set(position){
 
 function checkForWin()
 {
+    var matrix = document.getElementById("matrix");
     if( (list.a == "X" && list.b == "X"  && list.c == "X") ||
         (list.d == "X" && list.e == "X"  && list.f == "X") ||
         (list.g == "X" && list.h == "X"  && list.i == "X") ||
@@ -41,7 +42,7 @@ function checkForWin()
         (list.a == "X" && list.e == "X"  && list.i == "X") ||
         (list.c == "X" && list.e == "X"  && list.g == "X") ) {
 
-        document.getElementById("matrix").innerHTML = "X wins!";
+        matrix.innerHTML = "X wins!";
         return true;
     }
     else if( (list.a == "O" && list.b == "O"  && list.c == "O") ||
@@ -53,7 +54,7 @@ function checkForWin()
         (list.a == "O" && list.e == "O"  && list.i == "O") ||
         (list.c == "O" && list.e == "O"  && list.g == "O") ) {
 
-        document.getElementById("matrix").innerHTML = "O wins!";
+        matrix.innerHTML = "O wins!";
         return true;
     }
     else if(
@@ -66,9 +67,14 @@ function checkForWin()
         list.g != "" &&
         list.h != "" &&
         list.i != ""){
-
-            document.getElementById("matrix").innerHTML = "Draw!";
+            if(!matrix =="X wins" || !matrix =="O wins"){
+            matrix.innerHTML = "Draw!";
             return true;
+            }
+            else{
+                return false;
+            }
+            
         }
     return false;
 
