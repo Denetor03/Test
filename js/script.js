@@ -1,3 +1,25 @@
+document.getElementById("resetAnimation").addEventListener("click", function(){
+    try{
+        localStorage.removeItem('test');
+        console.log("deleted localStorage");
+    }
+    catch(e){
+    }
+});
+
+var test = "err"
+
+try{
+    test = localStorage.getItem('test');
+    console.log("found localStorage: " + test);
+}
+catch(e){
+    test = "err";
+    console.log("did not found localStorage");
+}
+
+if(test == null){
+localStorage.setItem('test', 'fuck you');
 const canvas = document.getElementById('c1');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
@@ -19,7 +41,7 @@ typewriter = () => {
 }
 //jeff
 window.addEventListener("load", typewriter);
-if(window.location.href.indexOf("gamehtml") == -1){
+if(window.location.href.indexOf("_html") == -1){
     fade("c1");
     fade("c2");
     fade("parent");
@@ -130,6 +152,13 @@ function fade(id){
             c1.style.display = "none";
             c2.style.display = "none";
             getElementById("parent").visibility = "hidden";
+
         }
     }, 50);
+}
+}
+else{
+    c1.style.display = "none";
+    c2.style.display = "none";
+    document.getElementById("column").style.backdropFilter = "blur(3px)";
 }
