@@ -161,6 +161,10 @@ a:visited{
     border-radius: 15px;
 }
 
+.column{
+    margin-top:62px;
+}
+
 @media screen and (max-width: 700px){
     body{
         font-size: 20px;
@@ -214,6 +218,11 @@ a:visited{
         position: relative;
         left: -15%;
     }
+
+    .column{
+        margin-top:45px;
+    }
+
 }
 
 a{
@@ -326,7 +335,3 @@ span{
     height: 100%;
 }
 
-
-.column{
-    margin-top:62px;
-}

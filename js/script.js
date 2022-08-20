@@ -1,3 +1,4 @@
+try{
 document.getElementById("resetAnimation").addEventListener("click", function(){
     try{
         localStorage.removeItem('test');
@@ -6,6 +7,8 @@ document.getElementById("resetAnimation").addEventListener("click", function(){
     catch(e){
     }
 });
+}
+catch(e){}
 
 var test = "err"
 
@@ -18,7 +21,16 @@ catch(e){
     console.log("did not found localStorage");
 }
 
-if(test == null){
+var test2 = false;
+
+if (window.location.href.indexOf("matrix.html") != -1){
+    test2 = true;
+    console.log("found matrix.html");
+}
+
+
+
+if(test == null || test2){
 localStorage.setItem('test', 'fuck you');
 const canvas = document.getElementById('c1');
 const ctx = canvas.getContext('2d');
