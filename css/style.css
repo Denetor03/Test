@@ -171,12 +171,28 @@ a:visited{
     bottom: 10%;
 }
 
+#matrix{
+    text-align: center;
+    position: relative;
+    top: 0;
+    left: 30%;
+}
+
+
 @media screen and (max-width: 700px){
     body{
         font-size: 20px;
         background-size: 300%;
         background-position: 50% 50%;
         background-repeat: repeat;
+    }
+
+    .grid-container {
+        top: 80px;
+    }
+    #matrix{
+        left: 15%;
+        top: 60px;
     }
 
     .Controls{
@@ -278,12 +294,7 @@ li{
 }
 
 
-#matrix{
-    text-align: center;
-    position: relative;
-    top: 0;
-    left: 30%;
-}
+
 
 #c1{
     background-color: black;
@@ -346,6 +357,7 @@ span{
     padding-top: 25px;
     height: 0;
 }
+
 .responsive-video iframe {
     position: absolute;
     top: 0;
