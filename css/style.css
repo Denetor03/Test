@@ -111,6 +111,7 @@ html{
     height: 50%;
     background-color: #9b00004b;
     border-radius: 15px;
+    padding-top: 65px;
 }
 
 .movementButtons
@@ -162,6 +163,12 @@ a:visited{
 
 .column{
     margin-top:62px;
+}
+
+#foo{
+    position: fixed;
+    left: 35%;
+    bottom: 10%;
 }
 
 @media screen and (max-width: 700px){
@@ -232,6 +239,13 @@ a:visited{
         margin-bottom: -2px;;
         color: #fffffff5;
     }
+
+    #foo{
+        position: fixed;
+        left: 48%;
+        bottom: 25%;
+        font-size: 60px;
+    }
 }
 
 a{
@@ -263,11 +277,7 @@ li{
     text-align: center;
 }
 
-#foo{
-    position: relative;
-    right: 13%;
-    top: 1%;
-}
+
 #matrix{
     text-align: center;
     position: relative;
