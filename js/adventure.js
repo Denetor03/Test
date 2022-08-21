@@ -21,7 +21,7 @@ const compass = {"north":north, "south":south, "east":east, "west":west};
 
 //------------------------------------------------------discriptions---------------------------------------------------------------
 //room descriptions
-const description = {0 : "you are in a burning room, there are sparking wires everywhere",      
+const description = {0 : "you are in a burning room, there are sparking wires everywhere",
                     1 : "It looks like an engine room",
                     2 : "you are narrow hallway",
                     3 : "You are in the sleeping quarters.",
