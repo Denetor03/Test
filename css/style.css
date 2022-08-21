@@ -276,7 +276,7 @@ a:visited{
     #foo{
         position: fixed;
         left: 48%;
-        bottom: 25%;
+        bottom: 20%;
         font-size: 60px;
     }
 }
