@@ -19,6 +19,7 @@ html{
 }
 .topnav {
     top: 0%;
+    left: 0%;
     width: 100%;
     position: fixed;
     background-color: rgb(29, 29, 29);
@@ -321,12 +322,29 @@ span{
 
 
 .weather{
+    top: 65px;
     border-radius: 15px;
     border-color: rgb(75, 75, 75);
     border-style: solid;
     position: relative;
-    width: 60%;
+    width: 90%;
     text-align: center;
+    margin: 5px;
+    background-color: #3030303a;
+    backdrop-filter: blur(3px);
+}
+
+#wInput{
+    width: 70%;
+    border-radius: 15px;
+    border-color: rgb(75, 75, 75);
+    border-style: solid;
+    position: relative;
+    text-align: center;
+}
+
+#temperatur{
+    margin: 2%;;
 }
 
 @keyframes blink{
@@ -366,3 +384,21 @@ span{
     height: 100%;
 }
 
+#temperatur{
+    display:flex;
+    justify-content: space-between;
+    margin: 5%;
+    margin-top: 0%;
+}
+
+#wInput{
+    font-size: 30px;
+}
+
+#weatherIcon{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    position: relative;
+    left: -40%;
+}
