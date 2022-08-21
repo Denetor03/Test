@@ -1,8 +1,9 @@
+var logging = false;
 try{
 document.getElementById("resetAnimation").addEventListener("click", function(){
     try{
         localStorage.removeItem('test');
-        console.log("deleted localStorage");
+        if(logging){console.log("deleted localStorage");}
     }
     catch(e){
     }
@@ -14,18 +15,18 @@ var test = "err"
 
 try{
     test = localStorage.getItem('test');
-    console.log("found localStorage: " + test);
+    if(logging){console.log("found localStorage: " + test);}
 }
 catch(e){
     test = "err";
-    console.log("did not found localStorage");
+    if(logging){console.log("did not found localStorage");}
 }
 
 var test2 = false;
 
 if (window.location.href.indexOf("matrix.html") != -1){
     test2 = true;
-    console.log("found matrix.html");
+    if(logging){console.log("found matrix.html");}
 }
 
 
@@ -57,7 +58,7 @@ if(window.location.href.indexOf("_html") == -1){
     fade("c1");
     fade("c2");
     fade("parent");
-    console.log("JEFF");
+    if(logging){console.log("JEFF");}
 }
 console.log(window.location.href);
 
@@ -163,7 +164,10 @@ function fade(id){
             clearInterval(fadeEffect);
             c1.style.display = "none";
             c2.style.display = "none";
-            getElementById("parent").visibility = "hidden";
+            try{
+                getElementById("parent").visibility = "hidden";
+            }
+            catch(e){}
 
         }
     }, 50);
